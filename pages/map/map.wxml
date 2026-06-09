@@ -1,0 +1,18 @@
+<view class="container">
+<view class="route-btn" bindtap="goRoute">
+  ▶ 巡检路线记录
+</view>
+
+<map
+  id="map"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  scale="14"
+  show-location="true"
+  markers="{{markers}}"
+  bindmarkertap="onMarkerTap"
+  class="map"
+>
+</map>
+
+</view>

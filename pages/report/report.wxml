@@ -1,0 +1,143 @@
+<scroll-view scroll-y class="page">
+
+<!-- 隐患类别 -->
+<view class="card">
+  <view class="title">
+    隐患类别
+  </view>
+
+  <picker
+    mode="selector"
+    range="{{typeList}}"
+    bindchange="typeChange">
+
+    <view class="picker">
+      {{type || '请选择隐患类别'}}
+    </view>
+
+  </picker>
+</view>
+
+<!-- 隐患描述 -->
+<view class="card">
+  <view class="title">
+    隐患描述
+  </view>
+
+  <textarea
+    class="textarea"
+    placeholder="请输入隐患情况"
+    bindinput="descInput"
+  />
+</view>
+
+<!-- 图片 -->
+<view class="card">
+
+  <view class="title">
+    现场图片
+  </view>
+
+  <button bindtap="chooseImages">
+    选择图片
+  </button>
+
+  <view class="img-box">
+
+    <image
+      wx:for="{{images}}"
+      wx:key="*this"
+      src="{{item}}"
+      class="img"
+      mode="aspectFill"
+    />
+
+  </view>
+
+</view>
+
+<!-- 视频 -->
+<view class="card">
+
+  <view class="title">
+    现场视频
+  </view>
+
+  <button bindtap="chooseVideo">
+    选择视频
+  </button>
+
+  <view wx:if="{{video}}">
+    ✅ 已选择视频
+  </view>
+
+</view>
+
+<!-- 语音速记 -->
+<view class="card">
+
+  <view class="title">
+    语音速记
+  </view>
+
+  <button
+    wx:if="{{!recording}}"
+    bindtap="startRecord">
+
+    🎤 开始录音
+
+  </button>
+
+  <button
+    wx:if="{{recording}}"
+    bindtap="stopRecord">
+
+    ⏹ 停止录音
+
+  </button>
+
+  <view wx:if="{{audioPath}}">
+    ✅ 录音完成
+  </view>
+
+</view>
+
+<!-- 定位 -->
+<view class="card">
+
+  <view class="title">
+    位置信息
+  </view>
+
+  <button bindtap="getLocation">
+    获取当前位置
+  </button>
+
+  <button bindtap="chooseLocation">
+    地图选点
+  </button>
+
+  <view class="location">
+    纬度：{{latitude}}
+  </view>
+
+  <view class="location">
+    经度：{{longitude}}
+  </view>
+
+  <view class="location">
+    {{address}}
+  </view>
+
+</view>
+
+<!-- 提交 -->
+<button
+  class="submit"
+  bindtap="submitReport">
+
+  提交隐患
+
+</button>
+
+</scroll-view>

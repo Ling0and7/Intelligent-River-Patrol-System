@@ -1,0 +1,31 @@
+<view class="container">
+
+<view class="card">
+
+  <view class="title">
+    钱塘江沿岸实时天气
+  </view>
+
+  <view class="item">
+    🌡 温度：{{temperature}}℃
+  </view>
+
+  <view class="item">
+    💨 风速：{{windspeed}} km/h
+  </view>
+
+  <view class="item">
+    ☁ 天气代码：{{weathercode}}
+  </view>
+
+  <view class="item">
+    🕒 更新时间：{{time}}
+  </view>
+
+  <button bindtap="getWeather">
+    刷新天气
+  </button>
+
+</view>
+
+</view>

@@ -1,0 +1,151 @@
+<scroll-view scroll-y class="page">
+
+<!-- 隐患类别 -->
+<view class="card">
+  <view class="title">隐患类别</view>
+  <view class="value">{{record.type}}</view>
+</view>
+
+<!-- 隐患描述 -->
+<view class="card">
+  <view class="title">隐患描述</view>
+  <view class="value">{{record.description}}</view>
+</view>
+
+<!-- 图片 -->
+<view class="card">
+
+  <view class="title">
+    现场图片
+  </view>
+
+  <view class="img-box">
+
+    <image
+      wx:for="{{record.images}}"
+      wx:key="*this"
+      src="{{item}}"
+      class="img"
+      data-src="{{item}}"
+      bindtap="previewImage"
+    />
+
+  </view>
+
+</view>
+
+<!-- 视频 -->
+<view
+  class="card"
+  wx:if="{{record.video}}">
+
+  <view class="title">
+    现场视频
+  </view>
+
+  <video
+    src="{{record.video}}"
+    controls
+    class="video">
+  </video>
+
+</view>
+
+<!-- 语音 -->
+<view
+  class="card"
+  wx:if="{{record.audio}}">
+
+  <view class="title">
+    巡检语音记录
+  </view>
+
+  <button
+    bindtap="playAudio">
+
+    ▶ 播放语音
+
+  </button>
+
+</view>
+
+<!-- 用户信息 -->
+<view
+  class="card"
+  wx:if="{{record.user}}">
+
+  <view class="title">
+    上报人员
+  </view>
+
+  <view style="display:flex;align-items:center;">
+
+    <image
+      src="{{record.user.avatarUrl}}"
+      style="width:80rpx;height:80rpx;border-radius:50%;margin-right:20rpx;">
+    </image>
+
+    <text>
+      {{record.user.nickname}}
+    </text>
+
+  </view>
+
+</view>
+
+<!-- 地图 -->
+<view class="card">
+
+  <view class="title">
+    位置信息
+  </view>
+
+  <map
+    longitude="{{record.longitude}}"
+    latitude="{{record.latitude}}"
+    scale="16"
+    show-location="true"
+    markers="{{[
+      {
+        id:1,
+        latitude:record.latitude,
+        longitude:record.longitude,
+        width:32,
+        height:32
+      }
+    ]}}"
+    style="width:100%;height:350rpx;">
+  </map>
+
+  <view style="margin-top:10rpx;">
+    {{record.address}}
+  </view>
+
+</view>
+
+<!-- 时间 -->
+<view class="card">
+
+  <view class="title">
+    上报时间
+  </view>
+
+  <view>
+    {{record.createTime}}
+  </view>
+
+</view>
+
+<view class="card">
+
+  <view class="title">
+    协同处理
+  </view>
+
+  <button open-type="share">
+    📤 分享给巡检队员
+  </button>
+
+</view>
+
+</scroll-view>

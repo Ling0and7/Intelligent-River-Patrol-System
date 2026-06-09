@@ -1,0 +1,13 @@
+<view class="container">
+
+<view class="chart-container">
+  <canvas canvas-id="typeChart" style="width:100%;height:300px;"></canvas>
+  <text class="chart-title">隐患类型分布</text>
+</view>
+
+<view class="chart-container">
+  <canvas canvas-id="dailyChart" style="width:100%;height:300px;"></canvas>
+  <text class="chart-title">每日上报数量</text>
+</view>
+
+</view>

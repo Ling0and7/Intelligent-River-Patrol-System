@@ -1,0 +1,25 @@
+<view class="container">
+
+  <view class="btns">
+
+<button wx:if="{{!recording && !simulating}}" bindtap="startTrack">开始巡检</button>
+<button wx:if="{{recording}}" bindtap="stopTrack">结束巡检</button>
+
+<!-- ⭐ 新增模拟按钮 -->
+<button wx:if="{{!simulating}}" bindtap="startSimulate">开始模拟巡检</button>
+<button wx:if="{{simulating}}" bindtap="stopSimulate">停止模拟</button>
+
+<button bindtap="playRoute">路线回放</button>
+
+</view>
+<map
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  scale="16"
+  show-location="true"
+  polyline="{{polyline}}"
+  markers="{{markers}}"
+  class="map"
+></map>
+
+</view>

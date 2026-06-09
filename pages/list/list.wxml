@@ -1,0 +1,21 @@
+<button bindtap="goStats" style="margin:20rpx;">
+  📊 查看统计图表
+</button>
+
+<scroll-view scroll-y class="page" bindrefresherrefresh="onPullDownRefresh" refresher-enabled="true">
+
+<block wx:for="{{records}}" wx:key="_id">
+  <view class="card" bindtap="toDetail" data-id="{{item._id}}">
+
+    <image wx:if="{{item.images.length > 0}}" src="{{item.images[0]}}" class="thumb" />
+
+    <view class="info">
+      <view class="type">{{item.type}}</view>
+      <view class="desc">{{item.description}}</view>
+      <view class="time">{{item.createTime | formatTime}}</view>
+    </view>
+
+  </view>
+</block>
+
+</scroll-view>
